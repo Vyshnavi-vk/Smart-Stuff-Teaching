@@ -42,7 +42,7 @@ const PORT = process.env.PORT || 8080
 
 
 /* API ENDPOINTS */
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.send(`API running successfully on port ${PORT}`)
 })
 
