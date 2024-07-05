@@ -60,17 +60,21 @@ const updateVendorController = async (req, res) => {
 
     const { id } = req.params
 
+    console.log(req)
+
+
     try {
         //finds the vendor with the id which needs to be updated, and updates
         //vendor accordingly
+
         const vendor = await Vendor.findByIdAndUpdate(id, {
             name,
             profileURI,
             description,
-            backgroundImage: req.files.backgroundImage[0].filename,
-            avatarImage: req.files.avatarImage[0].filename,
+            backgroundImage: req.files?.backgroundImage[0]?.filename,
+            avatarImage: req.files?.avatarImage[0]?.filename,
             vendorShopOwner,
-            productURL,
+            productURL:[],
             contactInfo: {
                 location: req.body['contactInfo.location'],
                 storeEmail: req.body['contactInfo.storeEmail'],
