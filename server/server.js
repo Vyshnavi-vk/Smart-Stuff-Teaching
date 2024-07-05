@@ -17,14 +17,14 @@ dotenv.config()
 configDB()
 app.use(express.json())
 app.use(cors())
-app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
+app.use("/assets", express.static(path.join(__dirname, "../var/public/assets")));
 
 
 
 /* HANDLING IMAGE UPLOAD USING MULTER */
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, "../../public/assets"))
+        cb(null, path.join(__dirname, "../var/public/assets"))
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
