@@ -24,7 +24,7 @@ app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
 /* HANDLING IMAGE UPLOAD USING MULTER */
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, "public", "assets"))
+        cb(null, path.join(__dirname, "../public/assets"))
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
